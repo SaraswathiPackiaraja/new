@@ -1,0 +1,26 @@
+<p>Login page</p>
+<div class="container">
+    <br />
+    <form  [formGroup]='form' (ngSubmit)="onClickSubmit(  )">
+    <label for="username">Username   </label>
+    <input type="text" id ="username" name="username" formControlName="username" ><br><br>
+    <div *ngIf="form.controls.username.touched
+        && !form.controls.username.valid" class="alert alert-danger">
+            Username is required
+    </div>
+   
+    <label for="password">Password   </label>
+    <input type="password" id ="password" formControlName="password" ><br>
+    <div *ngIf="form.controls.password.touched
+        && !form.controls.password.valid" class="alert alert-danger">
+            Password is required
+    </div>
+    
+    <input type="submit"class ="forsubmit" value = "Login" [disabled]="!form.valid">
+</form>
+
+
+<ul *ngFor = "let data of datas">
+    <li>Username : {{data.username}} Password: {{data.password}}</li>
+ </ul>
+<br><br><br>
